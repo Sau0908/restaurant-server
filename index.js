@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import reservationRoutes from "./routes/reservation.js";
 import bodyParser from "body-parser";
+import contactRoutes from "./routes/contact.js";
 
 const app = express();
 app.use(bodyParser.json());
@@ -14,6 +15,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/reservation", reservationRoutes);
+app.use("/api/contact", contactRoutes);
 
 const PORT = 5000;
 const DATABASE_URL =
