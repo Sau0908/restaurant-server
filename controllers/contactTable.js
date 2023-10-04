@@ -21,3 +21,20 @@ export const savingContactUs = async (req, res) => {
     res.status(500).json({ error: "Could not create reservation " });
   }
 };
+
+export const deleteContact = async (req, res) => {
+  const contactId = req.params.id;
+  console.log("id", contactId);
+  console.log("hello");
+  try {
+    const deletingContacting = await Contact.findByIdAndRemove(contactId);
+
+    if (!deletingContacting) {
+      return res.status(404).json({ error: "Reservation not found" });
+    }
+
+    res.status(200).json({ message: "Reservation deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ error: "Could not delete reservation" });
+  }
+};

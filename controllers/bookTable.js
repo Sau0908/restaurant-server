@@ -13,7 +13,8 @@ export const getAllBooking = async (req, res) => {
 
 export const doBooking = async (req, res) => {
   try {
-    //    console.log(req.body);
+    console.log(req.body);
+
     const reservation = new Booking(req.body);
     console.log(reservation);
     await reservation.save();
